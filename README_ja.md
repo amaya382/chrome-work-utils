@@ -1,6 +1,6 @@
 <p align="right"><a href="README.md">English</a> / <strong>日本語</strong></p>
 
-<h1 align="center">🛠️ Work Utils Chrome Extension</h1>
+<h1 align="center">💻 Work Utils Chrome Extension</h1>
 
 <p align="center"><strong>本番環境のタブをひと目で見分け、画面共有中はどのページにも書き込める</strong></p>
 

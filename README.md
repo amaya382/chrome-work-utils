@@ -1,6 +1,6 @@
 <p align="right"><strong>English</strong> / <a href="README_ja.md">日本語</a></p>
 
-<h1 align="center">🛠️ Work Utils Chrome Extension</h1>
+<h1 align="center">💻 Work Utils Chrome Extension</h1>
 
 <p align="center"><strong>Spot the production tab at a glance, and draw on any page during a screen share.</strong></p>
 
