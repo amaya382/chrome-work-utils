@@ -1,6 +1,6 @@
 (() => {
   const { TOOLS, DRAW_COLORS, choices, normalizeSettings, createHistory, commit, undo, redo, currentShapes, createLayer, layerOrigin, pinLayer, unpinLayer } =
-    DevelopmentAnnotation;
+    WorkAnnotation;
 
   const ICONS = {
     grip: '<circle cx="6" cy="4" r=".6"/><circle cx="10" cy="4" r=".6"/><circle cx="6" cy="8" r=".6"/><circle cx="10" cy="8" r=".6"/><circle cx="6" cy="12" r=".6"/><circle cx="10" cy="12" r=".6"/>',
@@ -259,7 +259,7 @@
   }
 
   function create() {
-    const host = document.createElement('development-utils-drawing');
+    const host = document.createElement('work-utils-drawing');
     const shadow = host.attachShadow({ mode: 'open' });
     shadow.innerHTML = `<style>${STYLE}</style><canvas></canvas>
       <div class="toolbar" hidden>

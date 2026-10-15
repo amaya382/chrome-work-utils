@@ -1,4 +1,4 @@
-const { COLORS, STYLES, SOURCE_TYPES, PRESETS, textColor, createRule } = DevelopmentCore;
+const { COLORS, STYLES, SOURCE_TYPES, PRESETS, textColor, createRule } = WorkCore;
 
 const list = document.getElementById('rules');
 const empty = document.getElementById('empty');

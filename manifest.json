@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Development Utils",
+  "name": "Work Utils",
   "version": "0.1.0",
-  "description": "Developer utilities for Chrome: color pages by environment, draw on pages, and highlight text",
+  "description": "Utilities for everyday work in Chrome: color pages by environment, draw on pages, and highlight text",
   "icons": {
     "16": "icons/icon16.png",
     "32": "icons/icon32.png",
@@ -11,7 +11,7 @@
   },
   "permissions": ["storage", "contextMenus"],
   "action": {
-    "default_title": "Development Utils",
+    "default_title": "Work Utils",
     "default_popup": "popup.html"
   },
   "background": {

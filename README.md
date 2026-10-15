@@ -1,16 +1,16 @@
 <p align="right"><strong>English</strong> / <a href="README_ja.md">日本語</a></p>
 
-<h1 align="center">🛠️ Development Utils</h1>
+<h1 align="center">🛠️ Work Utils</h1>
 
 <p align="center">
-  <strong>Utilities for developers in Chrome.</strong><br/>
+  <strong>Utilities for everyday work in Chrome.</strong><br/>
   Environment colors marks the environment a page belongs to, such as a Google Cloud project or an AWS account.<br/>
   Draw and Highlight mark up a page while you explain it, such as during a screen share.
 </p>
 
-Development Utils is a Manifest V3 Chrome extension written in plain JavaScript. There is no build step: the repository directory is the extension.
+Work Utils is a Manifest V3 Chrome extension written in plain JavaScript. There is no build step: the repository directory is the extension.
 
-## Why Development Utils?
+## Why Work Utils?
 
 - **Shows the environment at a glance** — a page that matches a rule gets a colored bar or a frame around the whole window, a label with the environment's name, and the name in front of the tab title. Choose a thin bar for development and a thick frame for production, so the dangerous tab is the loud one
 - **Works the same on any site** — a rule reads a value from the page's URL, a query parameter, a meta tag, a cookie, or an element, and compares it with a pattern. Google Cloud and AWS are presets of these rules, so a rule can be fixed on the settings page when a console changes, and the same rules work for your own staging sites
@@ -24,7 +24,7 @@ Development Utils is a Manifest V3 Chrome extension written in plain JavaScript.
 1. Clone this repository
 
    ```bash
-   git clone https://github.com/amaya382/chrome-development-utils.git
+   git clone https://github.com/amaya382/chrome-work-utils.git
    ```
 
 2. Open `chrome://extensions/`
@@ -109,7 +109,7 @@ The drawings scroll with the page by default, and stay on the page after drawing
 
 ### Highlight
 
-Select text, right-click it, and choose Development Utils → Highlight yellow, green, blue, or pink. Remove highlight removes the highlights that overlap the selected text, and Clear highlights removes all of them on the page. Clear highlights is also in the extension's popup.
+Select text, right-click it, and choose Work Utils → Highlight yellow, green, blue, or pink. Remove highlight removes the highlights that overlap the selected text, and Clear highlights removes all of them on the page. Clear highlights is also in the extension's popup.
 
 Highlights do not change the page's content, and they disappear when the page is reloaded.
 

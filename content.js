@@ -1,5 +1,5 @@
 (() => {
-  const { findRule, textColor, retitle } = DevelopmentCore;
+  const { findRule, textColor, retitle } = WorkCore;
 
   // Consoles are single-page apps that switch projects and accounts without a page load.
   const POLL_MS = 1000;
@@ -47,7 +47,7 @@
   }
 
   function show(rule) {
-    host ??= document.createElement('development-utils-environment');
+    host ??= document.createElement('work-utils-environment');
     const shadow = host.shadowRoot ?? host.attachShadow({ mode: 'open' });
     shadow.innerHTML = `<style>${STYLE}</style><div class="${rule.style}"></div><div class="label"></div>`;
     host.style.setProperty('--color', rule.color);

@@ -1,6 +1,6 @@
 importScripts('annotation.js');
 
-const { HIGHLIGHT_COLORS } = DevelopmentAnnotation;
+const { HIGHLIGHT_COLORS } = WorkAnnotation;
 
 chrome.runtime.onInstalled.addListener(async () => {
   await chrome.contextMenus.removeAll();

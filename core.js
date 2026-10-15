@@ -159,6 +159,6 @@
   }
 
   const api = { COLORS, STYLES, SOURCE_TYPES, PRESETS, matchGlob, readCookie, extractValue, findRule, textColor, retitle, createRule };
-  root.DevelopmentCore = api;
+  root.WorkCore = api;
   if (typeof module !== 'undefined') module.exports = api;
 })(globalThis);

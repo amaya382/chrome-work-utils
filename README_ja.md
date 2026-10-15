@@ -1,16 +1,16 @@
 <p align="right"><a href="README.md">English</a> / <strong>日本語</strong></p>
 
-<h1 align="center">🛠️ Development Utils</h1>
+<h1 align="center">🛠️ Work Utils</h1>
 
 <p align="center">
-  <strong>Chrome で使う開発者向けのユーティリティ</strong><br/>
+  <strong>Chrome で使う日々の仕事のためのユーティリティ</strong><br/>
   Environment colors は、Google Cloud の project や AWS の account など、ページがどの環境のものかを色で示す。<br/>
   Draw と Highlight は、画面共有中の説明などでページに書き込みや印を付ける。
 </p>
 
-Development Utils は plain JavaScript で書いた Manifest V3 の Chrome 拡張機能である。ビルドは不要で、リポジトリのディレクトリがそのまま拡張機能になる。
+Work Utils は plain JavaScript で書いた Manifest V3 の Chrome 拡張機能である。ビルドは不要で、リポジトリのディレクトリがそのまま拡張機能になる。
 
-## Why Development Utils?
+## Why Work Utils?
 
 - **環境がひと目でわかる** — ルールに一致したページには、色付きのバーかウィンドウ全体を囲む枠、環境名のラベルが出て、タブのタイトルの前にも環境名が付く。開発環境は細いバー、本番環境は太い枠にしておけば、危ないタブほど目立つ
 - **どのサイトでも同じ仕組みで動く** — ルールはページの URL、query parameter、meta タグ、cookie、要素のいずれかから値を読み、パターンと照合する。Google Cloud と AWS はこのルールのプリセットなので、コンソール側が変わっても設定ページでルールを直せる。自分たちのステージング環境のサイトにも同じルールが使える
@@ -24,7 +24,7 @@ Development Utils は plain JavaScript で書いた Manifest V3 の Chrome 拡�
 1. このリポジトリを clone する
 
    ```bash
-   git clone https://github.com/amaya382/chrome-development-utils.git
+   git clone https://github.com/amaya382/chrome-work-utils.git
    ```
 
 2. `chrome://extensions/` を開く
@@ -109,7 +109,7 @@ Meta tag と Cookie では、JSON key を指定すると値を JSON として読
 
 ### Highlight
 
-テキストを選んで右クリックし、Development Utils → Highlight yellow、green、blue、pink のどれかを選ぶ。Remove highlight は選んだテキストに重なるハイライトを消し、Clear highlights はページのハイライトをすべて消す。Clear highlights は拡張機能のポップアップにもある。
+テキストを選んで右クリックし、Work Utils → Highlight yellow、green、blue、pink のどれかを選ぶ。Remove highlight は選んだテキストに重なるハイライトを消し、Clear highlights はページのハイライトをすべて消す。Clear highlights は拡張機能のポップアップにもある。
 
 ハイライトはページの内容を書き換えず、ページを再読み込みすると消える。
 

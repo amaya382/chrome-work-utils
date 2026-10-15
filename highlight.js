@@ -1,7 +1,7 @@
 (() => {
-  const { HIGHLIGHT_COLORS } = DevelopmentAnnotation;
+  const { HIGHLIGHT_COLORS } = WorkAnnotation;
 
-  const names = HIGHLIGHT_COLORS.map(({ id }) => `development-utils-${id}`);
+  const names = HIGHLIGHT_COLORS.map(({ id }) => `work-utils-${id}`);
   const style = document.createElement('style');
   style.textContent = HIGHLIGHT_COLORS.map(({ hex }, i) => `::highlight(${names[i]}) { background-color: ${hex}; color: #000000; }`).join('\n');
 

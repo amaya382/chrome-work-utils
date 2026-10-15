@@ -123,6 +123,6 @@
     pinLayer,
     unpinLayer,
   };
-  root.DevelopmentAnnotation = api;
+  root.WorkAnnotation = api;
   if (typeof module !== 'undefined') module.exports = api;
 })(globalThis);

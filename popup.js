@@ -1,5 +1,5 @@
-const { textColor } = DevelopmentCore;
-const { HIGHLIGHT_COLORS } = DevelopmentAnnotation;
+const { textColor } = WorkCore;
+const { HIGHLIGHT_COLORS } = WorkAnnotation;
 
 async function activeTab() {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
