@@ -1,0 +1,187 @@
+:root {
+  color-scheme: light dark;
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --text: #1f2328;
+  --muted: #656d76;
+  --border: #d0d7de;
+  --focus: #1565c0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181c;
+    --surface: #1f2228;
+    --text: #e6e8eb;
+    --muted: #9198a1;
+    --border: #3a3f47;
+    --focus: #64a0ff;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.5 system-ui, sans-serif;
+}
+
+main {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+h1 {
+  font-size: 22px;
+  margin: 0 0 16px;
+}
+
+h2 {
+  font-size: 17px;
+  margin: 0 0 4px;
+}
+
+.hint {
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+
+code {
+  font-family: ui-monospace, monospace;
+}
+
+input,
+select,
+button {
+  font: inherit;
+  color: inherit;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+
+input:focus-visible,
+select:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 1px;
+}
+
+button {
+  cursor: pointer;
+}
+
+#rules {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.rule {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 6px solid var(--rule-color);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.preview {
+  padding: 2px 12px;
+  border-radius: 0 0 6px 6px;
+  font-weight: 600;
+  font-size: 12px;
+  min-height: 1.4em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px 12px;
+}
+
+.grid label,
+.field {
+  display: grid;
+  gap: 2px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.grid input,
+.grid select {
+  font-size: 14px;
+  min-width: 0;
+}
+
+.wide {
+  grid-column: 1 / -1;
+}
+
+.swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+}
+
+.swatch {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--swatch);
+  cursor: pointer;
+}
+
+.swatch input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.swatch:has(input:checked),
+.swatch.custom.selected {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+
+.swatch:has(input:focus-visible) {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.swatch.custom:not(.selected) {
+  background: conic-gradient(#c62828, #f9a825, #2e7d32, #00838f, #1565c0, #6a1b9a, #c62828);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.add {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.add .hint {
+  margin: 0;
+}

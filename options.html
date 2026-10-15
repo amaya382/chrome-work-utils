@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Development Utils</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Development Utils</h1>
+
+      <section>
+        <h2>Environment colors</h2>
+        <p class="hint">
+          Rules are checked from top to bottom, and the first one that matches the page colors it. Patterns use <code>*</code> as a wildcard
+          and ignore case.
+        </p>
+
+        <ol id="rules"></ol>
+        <p id="empty" class="hint">No rules yet.</p>
+
+        <div class="add">
+          <select id="preset" aria-label="Preset"></select>
+          <button id="add" type="button">Add rule</button>
+          <span id="status" class="hint" role="status"></span>
+        </div>
+      </section>
+    </main>
+
+    <template id="rule-template">
+      <li class="rule">
+        <div class="head">
+          <span class="preview"></span>
+          <span class="spacer"></span>
+          <button type="button" data-action="up" title="Move up" aria-label="Move up">↑</button>
+          <button type="button" data-action="down" title="Move down" aria-label="Move down">↓</button>
+          <button type="button" data-action="remove" title="Delete" aria-label="Delete">✕</button>
+        </div>
+        <div class="grid">
+          <label>Name <input data-field="name" placeholder="prod" /></label>
+          <label>Pattern <input data-field="pattern" /></label>
+          <label>Style <select data-field="style"></select></label>
+          <div class="field">
+            <span>Color</span>
+            <div class="swatches"></div>
+          </div>
+          <label class="wide">Site <input data-field="site" placeholder="https://example.com/*" /></label>
+          <label>Source <select data-field="source.type"></select></label>
+          <label data-param="name">Name <input data-field="source.name" /></label>
+          <label data-param="key">JSON key <input data-field="source.key" placeholder="optional" /></label>
+          <label data-param="selector">Selector <input data-field="source.selector" placeholder="#account-name" /></label>
+        </div>
+      </li>
+    </template>
+
+    <script src="core.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>
