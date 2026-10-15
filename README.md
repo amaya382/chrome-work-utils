@@ -31,7 +31,7 @@ Development Utils is a Manifest V3 Chrome extension written in plain JavaScript.
 3. Enable "Developer mode"
 4. Click "Load unpacked" and select the cloned directory
 
-Click the extension's icon in the toolbar to open the settings page. Choose "Google Cloud project" and click "Add rule", then enter `prod` as Name and `*-prod` as Pattern, pick Red, and set Style to Frame. Open a project whose ID ends with `-prod` in the Google Cloud console, and a red frame with the label `prod` appears around the page.
+Click the extension's icon in the toolbar, then Edit rules under Environment colors, to open the settings page. Choose "Google Cloud project" and click "Add rule", then enter `prod` as Name and `*-prod` as Pattern, pick Red, and set Style to Frame. Open a project whose ID ends with `-prod` in the Google Cloud console, and a red frame with the label `prod` appears around the page.
 
 To update, run `git pull` and click the reload button on the extension's card in `chrome://extensions/`.
 
@@ -39,7 +39,7 @@ To update, run `git pull` and click the reload button on the extension's card in
 
 ### Environment colors
 
-Rules are edited on the settings page, which opens from the extension's icon. Changes are saved as they are typed and apply to open tabs right away. Rules are synced with your Chrome profile.
+Rules are edited on the settings page, which opens from Edit rules in the extension's popup. The popup also shows the environment of the current tab. Changes are saved as they are typed and apply to open tabs right away. Rules are synced with your Chrome profile.
 
 Each rule has these fields:
 
@@ -83,7 +83,7 @@ The extension checks the page again every second, so it follows a console that c
 
 ### Draw
 
-Press `Alt+Shift+D` to start drawing on the current tab. The same shortcut stops drawing. The shortcut can be changed at `chrome://extensions/shortcuts`.
+Press `Alt+Shift+D`, or click the extension's icon and then Start drawing, to start drawing on the current tab. The same shortcut stops drawing. The shortcut can be changed at `chrome://extensions/shortcuts`.
 
 A toolbar appears on the page. Drag its grip on the left to move it; it reopens at the same place.
 
@@ -109,7 +109,7 @@ The drawings scroll with the page by default, and stay on the page after drawing
 
 ### Highlight
 
-Select text, right-click it, and choose Development Utils → Highlight yellow, green, blue, or pink. Remove highlight removes the highlights that overlap the selected text, and Clear highlights removes all of them on the page.
+Select text, right-click it, and choose Development Utils → Highlight yellow, green, blue, or pink. Remove highlight removes the highlights that overlap the selected text, and Clear highlights removes all of them on the page. Clear highlights is also in the extension's popup.
 
 Highlights do not change the page's content, and they disappear when the page is reloaded.
 
@@ -143,8 +143,9 @@ The drawings follow the scroll of the window. On a page that scrolls an element 
 | `annotation.js` | Drawing tools and their choices, highlight colors, undo history, and pinning. Shared by the content scripts, the background, and the tests |
 | `draw.js` | The drawing layer and its toolbar |
 | `highlight.js` | Highlights selected text |
+| `popup.html`, `popup.css`, `popup.js` | The popup of the toolbar icon |
 | `options.html`, `options.css`, `options.js` | The settings page |
-| `background.js` | Opens the settings page from the toolbar icon, adds the context menu, and passes it and the shortcut to the page |
+| `background.js` | Adds the context menu and passes it and the shortcut to the page |
 | `icons/` | Extension icons |
 | `test/` | Unit tests for `core.js` and `annotation.js` |
 

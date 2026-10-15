@@ -20,6 +20,7 @@
   `;
 
   let rules = [];
+  let current = null;
   let appliedKey = null;
   let host = null;
   let label = null;
@@ -64,6 +65,7 @@
 
   function update() {
     const rule = findRule(rules, page());
+    current = rule;
     const key = rule && JSON.stringify(rule);
     if (key === appliedKey) return;
     appliedKey = key;
@@ -94,6 +96,10 @@
   new MutationObserver(() => {
     if (titledName) applyTitle(titledName);
   }).observe(document.head ?? document.documentElement, { subtree: true, childList: true, characterData: true });
+
+  chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    if (message.type === 'environment') sendResponse(current && { name: current.name, color: current.color });
+  });
 
   chrome.storage.onChanged.addListener((changes, area) => {
     if (area !== 'sync' || !changes.rules) return;

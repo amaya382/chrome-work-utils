@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Development Utils</title>
+    <link rel="stylesheet" href="options.css" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <section>
+      <h2>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2.5" width="12" height="11" rx="1.5" /><path d="M2 5.5h12" /></svg>
+        Environment colors
+      </h2>
+      <div class="state">
+        <span id="environment-chip" class="chip" hidden></span>
+        <span id="environment" class="muted">No rule matches this page</span>
+      </div>
+      <button id="rules" type="button">Edit rules</button>
+    </section>
+
+    <section>
+      <h2>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 13l.8-3.2L11 2.6 13.4 5l-7.2 7.2z" /></svg>
+        Draw
+      </h2>
+      <button id="draw" class="primary" type="button" data-page>
+        <span id="draw-label">Start drawing</span>
+        <kbd id="shortcut"></kbd>
+      </button>
+    </section>
+
+    <section>
+      <h2>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 14h10M5 11.5l1-3.5 5.5-5.5 2.5 2.5L8.5 10.5z" /></svg>
+        Highlight
+      </h2>
+      <div class="state">
+        <span id="highlight-colors" class="swatches"></span>
+        <span class="muted">Select text and right-click it</span>
+      </div>
+      <button id="clear-highlights" type="button" data-page>Clear highlights</button>
+    </section>
+
+    <p id="unavailable" class="muted" hidden>
+      Draw and Highlight are not available on this page. Reload the page if it was open before the extension was loaded.
+    </p>
+
+    <script src="core.js"></script>
+    <script src="annotation.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

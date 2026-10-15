@@ -31,7 +31,7 @@ Development Utils は plain JavaScript で書いた Manifest V3 の Chrome 拡�
 3. 「デベロッパー モード」をオンにする
 4. 「パッケージ化されていない拡張機能を読み込む」を押し、clone したディレクトリを選ぶ
 
-ツールバーの拡張機能アイコンを押すと設定ページが開く。「Google Cloud project」を選んで「Add rule」を押し、Name に `prod`、Pattern に `*-prod` を入れ、Red を選んで Style を Frame にする。Google Cloud コンソールで ID が `-prod` で終わる project を開くと、ページの周りに赤い枠と `prod` のラベルが出る。
+ツールバーの拡張機能アイコンを押し、Environment colors の Edit rules を選ぶと設定ページが開く。「Google Cloud project」を選んで「Add rule」を押し、Name に `prod`、Pattern に `*-prod` を入れ、Red を選んで Style を Frame にする。Google Cloud コンソールで ID が `-prod` で終わる project を開くと、ページの周りに赤い枠と `prod` のラベルが出る。
 
 更新するときは `git pull` を実行し、`chrome://extensions/` の拡張機能のカードにある再読み込みボタンを押す。
 
@@ -39,7 +39,7 @@ Development Utils は plain JavaScript で書いた Manifest V3 の Chrome 拡�
 
 ### Environment colors
 
-ルールは拡張機能のアイコンから開く設定ページで編集する。入力した内容はその場で保存され、開いているタブにもすぐ反映される。ルールは Chrome のプロファイルで同期される。
+ルールは拡張機能のポップアップの Edit rules から開く設定ページで編集する。ポップアップには今のタブの環境も出る。入力した内容はその場で保存され、開いているタブにもすぐ反映される。ルールは Chrome のプロファイルで同期される。
 
 ルールの項目は次のとおり。
 
@@ -83,7 +83,7 @@ Meta tag と Cookie では、JSON key を指定すると値を JSON として読
 
 ### Draw
 
-`Alt+Shift+D` を押すと、今のタブで描画を始める。同じショートカットで描画を終える。ショートカットは `chrome://extensions/shortcuts` で変えられる。
+`Alt+Shift+D` を押すか、拡張機能のアイコンを押して Start drawing を選ぶと、今のタブで描画を始める。同じショートカットで描画を終える。ショートカットは `chrome://extensions/shortcuts` で変えられる。
 
 ページ上にツールバーが出る。左端のつまみをドラッグすると動かせ、次に開いたときも同じ位置に出る。
 
@@ -109,7 +109,7 @@ Meta tag と Cookie では、JSON key を指定すると値を JSON として読
 
 ### Highlight
 
-テキストを選んで右クリックし、Development Utils → Highlight yellow、green、blue、pink のどれかを選ぶ。Remove highlight は選んだテキストに重なるハイライトを消し、Clear highlights はページのハイライトをすべて消す。
+テキストを選んで右クリックし、Development Utils → Highlight yellow、green、blue、pink のどれかを選ぶ。Remove highlight は選んだテキストに重なるハイライトを消し、Clear highlights はページのハイライトをすべて消す。Clear highlights は拡張機能のポップアップにもある。
 
 ハイライトはページの内容を書き換えず、ページを再読み込みすると消える。
 
@@ -143,8 +143,9 @@ Chrome は `chrome://` のページと Chrome Web Store では拡張機能を動
 | `annotation.js` | 描画ツールとその選択肢、ハイライトの色、undo の履歴、pin。content script、background、テストで共有する |
 | `draw.js` | 描画レイヤーとツールバー |
 | `highlight.js` | 選んだテキストにハイライトを付ける |
+| `popup.html`、`popup.css`、`popup.js` | ツールバーアイコンのポップアップ |
 | `options.html`、`options.css`、`options.js` | 設定ページ |
-| `background.js` | ツールバーのアイコンから設定ページを開き、コンテキストメニューを加え、メニューとショートカットの操作をページに渡す |
+| `background.js` | コンテキストメニューを加え、メニューとショートカットの操作をページに渡す |
 | `icons/` | 拡張機能のアイコン |
 | `test/` | `core.js` と `annotation.js` の unit test |
 

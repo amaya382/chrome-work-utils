@@ -322,7 +322,8 @@
   );
 
   chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    if (message.type === 'toggle-drawing') {
+    if (message.type === 'drawing') sendResponse(active);
+    else if (message.type === 'toggle-drawing') {
       sendResponse(!active);
       setActive(!active);
     }

@@ -1,5 +1,3 @@
-chrome.action.onClicked.addListener(() => chrome.runtime.openOptionsPage());
-
 importScripts('annotation.js');
 
 const { HIGHLIGHT_COLORS } = DevelopmentAnnotation;

@@ -11,7 +11,8 @@
   },
   "permissions": ["storage", "contextMenus"],
   "action": {
-    "default_title": "Development Utils settings"
+    "default_title": "Development Utils",
+    "default_popup": "popup.html"
   },
   "background": {
     "service_worker": "background.js"
