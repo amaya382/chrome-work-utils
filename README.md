@@ -4,7 +4,8 @@
 
 <p align="center">
   <strong>Utilities for developers in Chrome.</strong><br/>
-  Environment colors marks the environment a page belongs to, such as a Google Cloud project or an AWS account.
+  Environment colors marks the environment a page belongs to, such as a Google Cloud project or an AWS account.<br/>
+  Draw marks up a page while you explain it, such as during a screen share.
 </p>
 
 Development Utils is a Manifest V3 Chrome extension written in plain JavaScript. There is no build step: the repository directory is the extension.
@@ -14,6 +15,7 @@ Development Utils is a Manifest V3 Chrome extension written in plain JavaScript.
 - **Shows the environment at a glance** — a page that matches a rule gets a colored bar or a frame around the whole window, a label with the environment's name, and the name in front of the tab title. Choose a thin bar for development and a thick frame for production, so the dangerous tab is the loud one
 - **Works the same on any site** — a rule reads a value from the page's URL, a query parameter, a meta tag, a cookie, or an element, and compares it with a pattern. Google Cloud and AWS are presets of these rules, so a rule can be fixed on the settings page when a console changes, and the same rules work for your own staging sites
 - **Follows the console without a reload** — switching the project or account in a console changes the color within a second
+- **Points at things while you explain** — draw pens, lines, rectangles, and circles over any page, without leaving the page
 
 ## 🚀 Quick Start
 
@@ -79,9 +81,35 @@ The label sits at the top center of the window, over the page's header. It turns
 
 The extension checks the page again every second, so it follows a console that changes the project or account without loading a new page.
 
+### Draw
+
+Press `Alt+Shift+D` to start drawing on the current tab. The same shortcut stops drawing. The shortcut can be changed at `chrome://extensions/shortcuts`.
+
+A toolbar appears on the page. Drag its grip on the left to move it; it reopens at the same place.
+
+| Tool | Drawing |
+| --- | --- |
+| Pen | A freehand line |
+| Line | A straight line from where the drag starts to where it ends |
+| Rectangle | A rectangle spanning the drag |
+| Circle | An ellipse that fits in the drag |
+| Eraser | Erases what it passes over |
+
+The second row of the toolbar has the choices for the current tool. Pen, Line, Rectangle, and Circle have a color, a width, and an opacity. Rectangle and Circle also have Fill, which is none or one of the colors, drawn with the same opacity. Eraser has only a width. Each tool remembers its own choices, and they are kept after the browser restarts.
+
+| Button | Action |
+| --- | --- |
+| Undo, Redo | Undo or redo the last drawing or Clear. `Ctrl+Z`, `Ctrl+Shift+Z`, and `Ctrl+Y` work too |
+| Clear | Erase everything |
+| Hide drawings | Hide the drawings without erasing them. Drawing again shows them |
+| Pin | Keep the drawings where they are on the screen while the page scrolls. Turn it off and they scroll with the page again from where they are |
+| Stop drawing | Hide the toolbar and give the page back the pointer. `Esc` does the same |
+
+The drawings scroll with the page by default, and stay on the page after drawing stops so you can click and scroll the page while they are shown. They disappear when the page is reloaded or another page is opened.
+
 ## 🔒 Permissions
 
-- `storage` — save the rules
+- `storage` — save the rules and the drawing choices
 - Access to all sites — read the value of a rule and color the page on any site
 
 ## 🔧 Troubleshooting
@@ -94,6 +122,10 @@ The AWS presets read values that the AWS console puts in the page, and AWS can c
 
 Chrome does not run extensions on `chrome://` pages or the Chrome Web Store. A page that was open before the extension was installed or reloaded needs a reload.
 
+### Drawings do not follow the scroll
+
+The drawings follow the scroll of the window. On a page that scrolls an element inside it instead, such as many cloud consoles, the drawings stay where they are on the screen.
+
 ## 🧪 Development
 
 | File | Role |
@@ -101,10 +133,12 @@ Chrome does not run extensions on `chrome://` pages or the Chrome Web Store. A p
 | `manifest.json` | Extension manifest |
 | `core.js` | Colors, presets, value sources, and rule matching. Shared by the content script, the settings page, and the tests |
 | `content.js` | Reads the page, draws the bar, frame, and label, and sets the tab title |
+| `annotation.js` | Drawing tools and their choices, undo history, and pinning. Shared by the content script and the tests |
+| `draw.js` | The drawing layer and its toolbar |
 | `options.html`, `options.css`, `options.js` | The settings page |
-| `background.js` | Opens the settings page from the toolbar icon |
+| `background.js` | Opens the settings page from the toolbar icon and passes the shortcut to the page |
 | `icons/` | Extension icons |
-| `test/` | Unit tests for `core.js` |
+| `test/` | Unit tests for `core.js` and `annotation.js` |
 
 Run the tests with Node.js 18 or later:
 
