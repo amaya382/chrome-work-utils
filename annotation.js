@@ -20,6 +20,14 @@
     { id: 'eraser', title: 'Eraser', widths: [8, 16, 32, 64], defaults: { width: 32 } },
   ];
 
+  // Light enough that black text stays readable on them.
+  const HIGHLIGHT_COLORS = [
+    { id: 'yellow', title: 'Yellow', hex: '#fff176' },
+    { id: 'green', title: 'Green', hex: '#a5d6a7' },
+    { id: 'blue', title: 'Blue', hex: '#90caf9' },
+    { id: 'pink', title: 'Pink', hex: '#f48fb1' },
+  ];
+
   function choices(toolId, option) {
     const colors = DRAW_COLORS.map((c) => c.hex);
     switch (option) {
@@ -102,6 +110,7 @@
     DRAW_COLORS,
     OPACITIES,
     TOOLS,
+    HIGHLIGHT_COLORS,
     choices,
     normalizeSettings,
     createHistory,

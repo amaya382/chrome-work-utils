@@ -2,14 +2,14 @@
   "manifest_version": 3,
   "name": "Development Utils",
   "version": "0.1.0",
-  "description": "Developer utilities for Chrome: color pages by environment and draw on pages",
+  "description": "Developer utilities for Chrome: color pages by environment, draw on pages, and highlight text",
   "icons": {
     "16": "icons/icon16.png",
     "32": "icons/icon32.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
-  "permissions": ["storage"],
+  "permissions": ["storage", "contextMenus"],
   "action": {
     "default_title": "Development Utils settings"
   },
@@ -34,6 +34,11 @@
     {
       "matches": ["<all_urls>"],
       "js": ["annotation.js", "draw.js"]
+    },
+    {
+      "matches": ["<all_urls>"],
+      "all_frames": true,
+      "js": ["annotation.js", "highlight.js"]
     }
   ]
 }

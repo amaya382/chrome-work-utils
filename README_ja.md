@@ -5,7 +5,7 @@
 <p align="center">
   <strong>Chrome で使う開発者向けのユーティリティ</strong><br/>
   Environment colors は、Google Cloud の project や AWS の account など、ページがどの環境のものかを色で示す。<br/>
-  Draw は、画面共有中の説明などでページに書き込みをする。
+  Draw と Highlight は、画面共有中の説明などでページに書き込みや印を付ける。
 </p>
 
 Development Utils は plain JavaScript で書いた Manifest V3 の Chrome 拡張機能である。ビルドは不要で、リポジトリのディレクトリがそのまま拡張機能になる。
@@ -15,7 +15,7 @@ Development Utils は plain JavaScript で書いた Manifest V3 の Chrome 拡�
 - **環境がひと目でわかる** — ルールに一致したページには、色付きのバーかウィンドウ全体を囲む枠、環境名のラベルが出て、タブのタイトルの前にも環境名が付く。開発環境は細いバー、本番環境は太い枠にしておけば、危ないタブほど目立つ
 - **どのサイトでも同じ仕組みで動く** — ルールはページの URL、query parameter、meta タグ、cookie、要素のいずれかから値を読み、パターンと照合する。Google Cloud と AWS はこのルールのプリセットなので、コンソール側が変わっても設定ページでルールを直せる。自分たちのステージング環境のサイトにも同じルールが使える
 - **リロードせずにコンソールに追従する** — コンソールで project や account を切り替えると、1 秒以内に色が変わる
-- **説明しながら指し示せる** — どのページの上にもペン、線、四角、丸を描ける。ページを離れる必要はない
+- **説明しながら指し示せる** — どのページの上にもペン、線、四角、丸を描け、コンテキストメニューからテキストにハイライトを付けられる。ページを離れる必要はない
 
 ## 🚀 Quick Start
 
@@ -107,9 +107,16 @@ Meta tag と Cookie では、JSON key を指定すると値を JSON として読
 
 描いたものは既定ではページと一緒にスクロールする。描画を終えてもページ上に残るので、表示したままページをクリックしたりスクロールしたりできる。ページを再読み込みするか別のページを開くと消える。
 
+### Highlight
+
+テキストを選んで右クリックし、Development Utils → Highlight yellow、green、blue、pink のどれかを選ぶ。Remove highlight は選んだテキストに重なるハイライトを消し、Clear highlights はページのハイライトをすべて消す。
+
+ハイライトはページの内容を書き換えず、ページを再読み込みすると消える。
+
 ## 🔒 Permissions
 
 - `storage`：ルールと描画の選択を保存する
+- `contextMenus`：選んだテキストのコンテキストメニューに Highlight を加える
 - すべてのサイトへのアクセス：どのサイトでもルールの値を読んでページを色付けする
 
 ## 🔧 Troubleshooting
@@ -133,10 +140,11 @@ Chrome は `chrome://` のページと Chrome Web Store では拡張機能を動
 | `manifest.json` | 拡張機能のマニフェスト |
 | `core.js` | 色、プリセット、値の読み取り、ルールの照合。content script、設定ページ、テストで共有する |
 | `content.js` | ページを読み、バー、枠、ラベルを描き、タブのタイトルを設定する |
-| `annotation.js` | 描画ツールとその選択肢、undo の履歴、pin。content script とテストで共有する |
+| `annotation.js` | 描画ツールとその選択肢、ハイライトの色、undo の履歴、pin。content script、background、テストで共有する |
 | `draw.js` | 描画レイヤーとツールバー |
+| `highlight.js` | 選んだテキストにハイライトを付ける |
 | `options.html`、`options.css`、`options.js` | 設定ページ |
-| `background.js` | ツールバーのアイコンから設定ページを開き、ショートカットの操作をページに渡す |
+| `background.js` | ツールバーのアイコンから設定ページを開き、コンテキストメニューを加え、メニューとショートカットの操作をページに渡す |
 | `icons/` | 拡張機能のアイコン |
 | `test/` | `core.js` と `annotation.js` の unit test |
 

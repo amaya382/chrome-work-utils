@@ -5,7 +5,7 @@
 <p align="center">
   <strong>Utilities for developers in Chrome.</strong><br/>
   Environment colors marks the environment a page belongs to, such as a Google Cloud project or an AWS account.<br/>
-  Draw marks up a page while you explain it, such as during a screen share.
+  Draw and Highlight mark up a page while you explain it, such as during a screen share.
 </p>
 
 Development Utils is a Manifest V3 Chrome extension written in plain JavaScript. There is no build step: the repository directory is the extension.
@@ -15,7 +15,7 @@ Development Utils is a Manifest V3 Chrome extension written in plain JavaScript.
 - **Shows the environment at a glance** — a page that matches a rule gets a colored bar or a frame around the whole window, a label with the environment's name, and the name in front of the tab title. Choose a thin bar for development and a thick frame for production, so the dangerous tab is the loud one
 - **Works the same on any site** — a rule reads a value from the page's URL, a query parameter, a meta tag, a cookie, or an element, and compares it with a pattern. Google Cloud and AWS are presets of these rules, so a rule can be fixed on the settings page when a console changes, and the same rules work for your own staging sites
 - **Follows the console without a reload** — switching the project or account in a console changes the color within a second
-- **Points at things while you explain** — draw pens, lines, rectangles, and circles over any page, without leaving the page
+- **Points at things while you explain** — draw pens, lines, rectangles, and circles over any page, and highlight text from the context menu, without leaving the page
 
 ## 🚀 Quick Start
 
@@ -107,9 +107,16 @@ The second row of the toolbar has the choices for the current tool. Pen, Line, R
 
 The drawings scroll with the page by default, and stay on the page after drawing stops so you can click and scroll the page while they are shown. They disappear when the page is reloaded or another page is opened.
 
+### Highlight
+
+Select text, right-click it, and choose Development Utils → Highlight yellow, green, blue, or pink. Remove highlight removes the highlights that overlap the selected text, and Clear highlights removes all of them on the page.
+
+Highlights do not change the page's content, and they disappear when the page is reloaded.
+
 ## 🔒 Permissions
 
 - `storage` — save the rules and the drawing choices
+- `contextMenus` — add Highlight to the context menu of selected text
 - Access to all sites — read the value of a rule and color the page on any site
 
 ## 🔧 Troubleshooting
@@ -133,10 +140,11 @@ The drawings follow the scroll of the window. On a page that scrolls an element 
 | `manifest.json` | Extension manifest |
 | `core.js` | Colors, presets, value sources, and rule matching. Shared by the content script, the settings page, and the tests |
 | `content.js` | Reads the page, draws the bar, frame, and label, and sets the tab title |
-| `annotation.js` | Drawing tools and their choices, undo history, and pinning. Shared by the content script and the tests |
+| `annotation.js` | Drawing tools and their choices, highlight colors, undo history, and pinning. Shared by the content scripts, the background, and the tests |
 | `draw.js` | The drawing layer and its toolbar |
+| `highlight.js` | Highlights selected text |
 | `options.html`, `options.css`, `options.js` | The settings page |
-| `background.js` | Opens the settings page from the toolbar icon and passes the shortcut to the page |
+| `background.js` | Opens the settings page from the toolbar icon, adds the context menu, and passes it and the shortcut to the page |
 | `icons/` | Extension icons |
 | `test/` | Unit tests for `core.js` and `annotation.js` |
 
