@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Work Utils",
   "version": "0.1.0",
-  "description": "Utilities for everyday work in Chrome: color pages by environment, draw on pages, and highlight text",
+  "description": "Utilities for everyday work in Chrome: color pages by environment, draw on pages, highlight text, and paste Markdown links",
   "icons": {
     "16": "icons/icon16.png",
     "32": "icons/icon32.png",
@@ -40,6 +40,11 @@
       "matches": ["<all_urls>"],
       "all_frames": true,
       "js": ["annotation.js", "highlight.js"]
+    },
+    {
+      "matches": ["<all_urls>"],
+      "all_frames": true,
+      "js": ["link.js", "paste-link.js"]
     }
   ]
 }

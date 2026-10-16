@@ -1,5 +1,6 @@
 const { textColor } = WorkCore;
 const { HIGHLIGHT_COLORS } = WorkAnnotation;
+const { DEFAULTS } = WorkLink;
 
 async function activeTab() {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
@@ -55,5 +56,9 @@ chrome.commands.getAll().then((commands) => {
 document.getElementById('highlight-colors').append(
   ...HIGHLIGHT_COLORS.map(({ title, hex }) => Object.assign(document.createElement('span'), { title, style: `background: ${hex}` })),
 );
+
+const pasteLink = document.getElementById('paste-link');
+chrome.storage.sync.get(DEFAULTS).then((stored) => (pasteLink.checked = stored.pasteLink));
+pasteLink.addEventListener('change', () => chrome.storage.sync.set({ pasteLink: pasteLink.checked }));
 
 init();

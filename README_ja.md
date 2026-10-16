@@ -13,6 +13,7 @@ Work Utils は plain JavaScript で書いた Manifest V3 の Chrome 拡張機能
 - **リロードせずにコンソールに追従する** — コンソールで project や account を切り替えると、1 秒以内に色が変わる
 - **Draw** — ショートカットひとつで、どのページの上にもペン、線、四角、丸を描ける。画面共有中にページを離れずに指し示せる
 - **Highlight** — 選んだテキストにコンテキストメニューから 4 色のハイライトを付けられる。ページの内容は書き換えない
+- **Markdown link** — テキスト欄やエディターで選んだテキストの上に URL を貼り付けると、`[テキスト](URL)` になる。拡張機能の popup からオフにできる
 
 ## 🚀 Quick Start
 
@@ -34,7 +35,7 @@ Work Utils は plain JavaScript で書いた Manifest V3 の Chrome 拡張機能
 
 ## 🔒 Permissions
 
-- `storage`：ルールと描画の選択を保存する
+- `storage`：ルール、描画の選択、Markdown link のオン・オフを保存する
 - `contextMenus`：選んだテキストのコンテキストメニューに Highlight を加える
 - すべてのサイトへのアクセス：どのサイトでもルールの値を読んでページを色付けする
 

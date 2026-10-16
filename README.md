@@ -13,6 +13,7 @@ Work Utils is a Manifest V3 Chrome extension written in plain JavaScript. There 
 - **Follows the console without a reload** — switching the project or account in a console changes the color within a second
 - **Draw** — draw pens, lines, rectangles, and circles over any page with a shortcut, to point at things during a screen share without leaving the page
 - **Highlight** — mark selected text in one of four colors from the context menu, without changing the page's content
+- **Markdown link** — paste a URL over selected text in a text field or an editor to turn the text into `[text](url)`. Turn it off from the extension's popup
 
 ## 🚀 Quick Start
 
@@ -34,7 +35,7 @@ To update, run `git pull` and click the reload button on the extension's card in
 
 ## 🔒 Permissions
 
-- `storage` — save the rules and the drawing choices
+- `storage` — save the rules, the drawing choices, and whether Markdown link is on
 - `contextMenus` — add Highlight to the context menu of selected text
 - Access to all sites — read the value of a rule and color the page on any site
 

@@ -42,12 +42,24 @@
       <button id="clear-highlights" type="button" data-page>Clear highlights</button>
     </section>
 
+    <section>
+      <h2>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 9.5l3-3M7 4.5l1-1a2.5 2.5 0 0 1 3.5 3.5l-1 1M9 11.5l-1 1A2.5 2.5 0 0 1 4.5 9l1-1" /></svg>
+        Markdown link
+      </h2>
+      <label class="state toggle">
+        <input id="paste-link" type="checkbox" />
+        <span class="muted">Paste a URL over selected text</span>
+      </label>
+    </section>
+
     <p id="unavailable" class="muted" hidden>
       Draw and Highlight are not available on this page. Reload the page if it was open before the extension was loaded.
     </p>
 
     <script src="core.js"></script>
     <script src="annotation.js"></script>
+    <script src="link.js"></script>
     <script src="popup.js"></script>
   </body>
 </html>
